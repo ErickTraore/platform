@@ -1,0 +1,16 @@
+<h2>Liste des annonces</h2>
+
+  <ul>
+    {% for advert in listAdverts %}
+      <li>
+        <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+          {{ advert.title }}
+        </a>
+        par: {{ advert.author }},
+        le: {{ advert.date|date('d/m/Y') }},
+      <p>  contenu: {{ advert.content }}</p>
+      </li>
+    {% else %}
+      <li>Pas (encore !) d'annonces</li>
+    {% endfor %}
+  </ul>

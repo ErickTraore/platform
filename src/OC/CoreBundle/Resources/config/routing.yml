@@ -1,0 +1,10 @@
+oc_core_homepage:
+    path:     /
+    defaults: { _controller: OCCoreBundle:Core:index }
+
+oc_core_flashmessage:
+    path:     /contact
+    defaults: { _controller: OCCoreBundle:Core:contact }
+
+
+
