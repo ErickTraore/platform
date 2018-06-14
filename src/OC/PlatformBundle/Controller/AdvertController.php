@@ -19,16 +19,26 @@ class AdvertController extends Controller
     }
 
     // Notre liste d'annonce en dur
-        // Notre liste d'annonce en dur
-       
-        // erick recuperation bdd
-        $repository = $this->getDoctrine()
-        ->getManager()
-        ->getRepository('OCPlatformBundle:Advert')
-        ;
-    
-        // On récupère l'entité correspondante à l'id $id
-        $listAdverts = $repository->findAll();
+    $listAdverts = array(
+      array(
+        'title'   => 'Recherche développpeur Symfony',
+        'id'      => 1,
+        'author'  => 'Alexandre',
+        'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
+        'date'    => new \Datetime()),
+      array(
+        'title'   => 'Mission de webmaster',
+        'id'      => 2,
+        'author'  => 'Hugo',
+        'content' => 'Nous recherchons un webmaster capable de maintenir notre site internet. Blabla…',
+        'date'    => new \Datetime()),
+      array(
+        'title'   => 'Offre de stage webdesigner',
+        'id'      => 3,
+        'author'  => 'Mathieu',
+        'content' => 'Nous proposons un poste pour webdesigner. Blabla…',
+        'date'    => new \Datetime())
+    );
 
     return $this->render('OCPlatformBundle:Advert:index.html.twig', array(
       'listAdverts' => $listAdverts,
@@ -61,7 +71,6 @@ class AdvertController extends Controller
     // car ces attributs sont définis automatiquement dans le constructeur
 
     // On récupère l'EntityManager
-    //erick pour persister(enregistrer)dans la bdd
     $em = $this->getDoctrine()->getManager();
 
     // Étape 1 : On « persiste » l'entité
